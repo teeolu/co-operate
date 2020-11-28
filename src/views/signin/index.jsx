@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AuthenticationPageLayout } from "../../components";
 import { Input } from "../../atoms";
 
-const Signup = () => {
+const Signin = () => {
   const [form, setForm] = useState({});
 
   function handleSubmit(event) {
@@ -18,33 +18,30 @@ const Signup = () => {
 
   return (
     <AuthenticationPageLayout
+      title="Welcome back..."
       alternateLink={
         <span>
-          <Link to="signin">Login</Link> if you have an account already
+          <Link to="forgot-password">Forgot password?</Link> let's reset it
         </span>
       }
-      bottomText="We are very ready to have you. We are a community that surports each other"
+      bottomText={
+        <>
+          <p>
+            <Link to="signup">Sign up</Link> if you don't have an account
+            already
+          </p>
+          <p>
+            We are very ready to have you. We are a community that surports each
+            other
+          </p>
+        </>
+      }
+      btnText="Sign in"
       onSubmit={handleSubmit}
     >
       <Input
-        name="fullName"
-        label="Full name"
-        onInputChange={handleInputChange}
-        rules={{
-          required: true
-        }}
-      />
-      <Input
         name="email"
         label="Email address"
-        onInputChange={handleInputChange}
-        rules={{
-          required: true
-        }}
-      />
-      <Input
-        name="phoneNumber"
-        label="Phone number"
         onInputChange={handleInputChange}
         rules={{
           required: true
@@ -62,4 +59,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signin;

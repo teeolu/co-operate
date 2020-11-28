@@ -4,13 +4,25 @@ import { Router, Switch, Route } from "react-router-dom";
 import history from "./browserHistory";
 
 export const PUBLIC_PATHS = {
-  SIGNUP: "/signup"
+  SIGNUP: "/signup",
+  SIGNIN: "/signin",
+  FORGOT_PASSWORD: "/forgot-password"
 };
 
 const PUBLIC_ROUTES = [
   {
     component: lazy(() => import(`../views/signup`)),
     path: PUBLIC_PATHS.SIGNUP,
+    exact: true
+  },
+  {
+    component: lazy(() => import(`../views/signin`)),
+    path: PUBLIC_PATHS.SIGNIN,
+    exact: true
+  },
+  {
+    component: lazy(() => import(`../views/forgotPassword`)),
+    path: PUBLIC_PATHS.FORGOT_PASSWORD,
     exact: true
   }
 ];

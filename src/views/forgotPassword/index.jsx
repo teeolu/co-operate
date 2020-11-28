@@ -20,39 +20,18 @@ const Signup = () => {
     <AuthenticationPageLayout
       alternateLink={
         <span>
-          <Link to="signin">Login</Link> if you have an account already
+          <Link to="signin">Sign in</Link> if you have an account already
         </span>
       }
+      description="A mail will be sent to the email you provide. Click on the reset link to reset your password"
       bottomText="We are very ready to have you. We are a community that surports each other"
       onSubmit={handleSubmit}
+      title="Forgot password..."
+      btnText="Send link"
     >
-      <Input
-        name="fullName"
-        label="Full name"
-        onInputChange={handleInputChange}
-        rules={{
-          required: true
-        }}
-      />
       <Input
         name="email"
         label="Email address"
-        onInputChange={handleInputChange}
-        rules={{
-          required: true
-        }}
-      />
-      <Input
-        name="phoneNumber"
-        label="Phone number"
-        onInputChange={handleInputChange}
-        rules={{
-          required: true
-        }}
-      />
-      <Input
-        name="password"
-        label="Password"
         onInputChange={handleInputChange}
         rules={{
           required: true
