@@ -9,6 +9,7 @@ export default function Typography({
   className,
   style = {},
   children,
+  caption,
   color,
   ...rest
 }) {
@@ -21,6 +22,13 @@ export default function Typography({
         fontSize: "4rem",
         marginBottom: "2rem",
         color: colors.green_primary
+      };
+      break;
+    case "semi-title":
+      typographyStyle = {
+        ...typographyStyle,
+        fontSize: "3rem",
+        marginBottom: "2rem"
       };
       break;
     case "description":
@@ -37,6 +45,17 @@ export default function Typography({
         fontSize: "1.2rem",
         marginBottom: "1rem"
       };
+    case "regular":
+      typographyStyle = { ...typographyStyle };
+      break;
+    case "caption":
+      typographyStyle = {
+        ...typographyStyle,
+        fontSize: "1rem",
+        color: "#777",
+        fontWeight: 400
+      };
+      break;
     default:
     case "paragraph":
       typographyStyle = {
@@ -44,10 +63,9 @@ export default function Typography({
         fontSize: "1.6rem",
         color: colors.black
       };
-    case "regular":
-      typographyStyle = { ...typographyStyle };
-      break;
   }
+
+  if (!!color) typographyStyle.color = color;
 
   return React.createElement(
     component,

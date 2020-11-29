@@ -35,4 +35,5 @@ export const NavigationTabs = styled.ul`
 
 export const OverviewMain = styled.main`
   padding: 4rem;
+  flex: 1;
 `;

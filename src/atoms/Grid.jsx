@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function Grid({ variant, children, spacing, style, ...rest }) {
+export default function Grid({
+  repeat = 2,
+  variant,
+  children,
+  spacing,
+  style,
+  ...rest
+}) {
   let gridStyle = {};
 
   switch (variant) {
@@ -8,7 +15,7 @@ export default function Grid({ variant, children, spacing, style, ...rest }) {
       gridStyle = {
         ...gridStyle,
         display: "grid",
-        gridTemplateColumns: "repeat(2, 1fr)",
+        gridTemplateColumns: `repeat(${repeat}, 1fr)`,
         gap: spacing || "1rem"
       };
       break;

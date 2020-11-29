@@ -16,26 +16,32 @@ export default function Overview(props) {
   const navs = [
     {
       name: "Home",
+      component: lazy(() => import("./home")),
       linkUrl: `${path}/home`
     },
     {
       name: "Loans",
+      component: lazy(() => import("./loans")),
       linkUrl: `${path}/loans`
     },
     {
       name: "History",
+      component: lazy(() => import("./history")),
       linkUrl: `${path}/history`
     },
     {
       name: "Transactions",
+      component: lazy(() => import("./transactions")),
       linkUrl: `${path}/transactions`
     },
     {
       name: "Guarantors",
+      component: lazy(() => import("./guarantors")),
       linkUrl: `${path}/guarantors`
     },
     {
       name: "Settings",
+      component: lazy(() => import("./settings")),
       linkUrl: `${path}/settings`
     }
   ];
@@ -43,7 +49,7 @@ export default function Overview(props) {
   return (
     <div>
       <HeaderNavigation />
-      <AddBVNDetails />
+      {/* <AddBVNDetails /> */}
       <Container>
         <OverviewStyle>
           <NavigationTabs>
@@ -62,36 +68,14 @@ export default function Overview(props) {
           </NavigationTabs>
           <OverviewMain>
             <Switch>
-              <Route
-                path={`${path}/home`}
-                exact={true}
-                component={lazy(() => import("./home"))}
-              />
-              <Route
-                path={`${path}/loans`}
-                exact={true}
-                component={lazy(() => import("./loans"))}
-              />
-              <Route
-                path={`${path}/history`}
-                exact={true}
-                component={lazy(() => import("./history"))}
-              />
-              <Route
-                path={`${path}/transactions`}
-                exact={true}
-                component={lazy(() => import("./transactions"))}
-              />
-              <Route
-                path={`${path}/guarantors`}
-                exact={true}
-                component={lazy(() => import("./guarantors"))}
-              />
-              <Route
-                path={`${path}/settings`}
-                exact={true}
-                component={lazy(() => import("./settings"))}
-              />
+              {navs.map(route => (
+                <Route
+                  key={route.name}
+                  path={route.linkUrl}
+                  exact={true}
+                  component={route.component}
+                />
+              ))}
             </Switch>
           </OverviewMain>
         </OverviewStyle>

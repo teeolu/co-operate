@@ -10,6 +10,7 @@ export default function Button({
   className,
   style = {},
   children,
+  curved,
   hideArrow
 }) {
   let btnStyle = {};
@@ -24,7 +25,6 @@ export default function Button({
         fontSize: "1.6rem"
       };
       break;
-    default:
     case "secondary":
       btnStyle = {
         ...btnStyle,
@@ -34,7 +34,20 @@ export default function Button({
         fontSize: "1.4rem"
       };
       break;
+    case "tertiary":
+      btnStyle = {
+        ...btnStyle,
+        color: colors.green_primary,
+        background: "transparent",
+        border: `1px solid ${colors.green_primary}`,
+        padding: "1rem 2rem",
+        fontSize: "1.4rem"
+      };
+      break;
+    default:
   }
+
+  if (curved) btnStyle.borderRadius = "10rem";
 
   return (
     <ButtonStyle

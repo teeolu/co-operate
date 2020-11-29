@@ -5,6 +5,13 @@ const CardStyle = styled.section`
   background: ${colors.white};
   box-shadow: ${shadows.primary};
   padding: 3rem;
+  height: 100%;
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const InputField = styled.div`
