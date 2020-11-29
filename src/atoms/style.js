@@ -38,10 +38,6 @@ const InputField = styled.div`
 `;
 
 const ButtonStyle = styled.button`
-  padding: 1rem 2rem;
-  background: ${colors.blue_primary};
-  color: ${colors.white};
-  font-size: 2rem;
   border-radius: 0.5rem;
   display: inline-block;
   border-color: transparent;

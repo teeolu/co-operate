@@ -6,7 +6,8 @@ import history from "./browserHistory";
 export const PUBLIC_PATHS = {
   SIGNUP: "/signup",
   SIGNIN: "/signin",
-  FORGOT_PASSWORD: "/forgot-password"
+  FORGOT_PASSWORD: "/forgot-password",
+  OVERVIEW: "/dashboard"
 };
 
 const PUBLIC_ROUTES = [
@@ -23,6 +24,11 @@ const PUBLIC_ROUTES = [
   {
     component: lazy(() => import(`../views/forgotPassword`)),
     path: PUBLIC_PATHS.FORGOT_PASSWORD,
+    exact: true
+  },
+  {
+    component: lazy(() => import(`../views/overview`)),
+    path: PUBLIC_PATHS.OVERVIEW,
     exact: true
   }
 ];

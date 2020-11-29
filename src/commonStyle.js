@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
-const CenterContent = styled.div`
-  width: 120rem;
-  margin: 8rem auto;
+const Container = styled.div`
+  width: 114rem;
+  margin: 0 auto;
 `;
 
-const FormField = styled.form``;
+const FormField = styled.form`
+  width: 100%;
+`;
 
-export { CenterContent, FormField };
+export { Container, FormField };

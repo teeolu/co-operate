@@ -5,30 +5,44 @@ import { colors } from "../theme";
 import { ButtonStyle } from "./style";
 
 export default function Button({
-  variant = "submit",
+  type = "submit",
+  variant = "primary",
   className,
   style = {},
-  children
+  children,
+  hideArrow
 }) {
-  let typographyStyle = {};
+  let btnStyle = {};
 
   switch (variant) {
-    case "title":
-      typographyStyle = {
-        ...typographyStyle,
-        fontSize: "4rem",
-        color: colors.blue_primary
+    case "primary":
+      btnStyle = {
+        ...btnStyle,
+        color: colors.white,
+        background: colors.green_primary,
+        padding: "1rem 2rem",
+        fontSize: "1.6rem"
       };
       break;
     default:
-    case "regular":
-      typographyStyle = { ...typographyStyle };
+    case "secondary":
+      btnStyle = {
+        ...btnStyle,
+        color: colors.green_primary,
+        background: "transparent",
+        padding: "1rem 0",
+        fontSize: "1.4rem"
+      };
       break;
   }
 
   return (
-    <ButtonStyle type={variant}>
-      {children} <span>&#8594;</span>
+    <ButtonStyle
+      type={type}
+      className={className}
+      style={{ ...btnStyle, ...style }}
+    >
+      {children} {!hideArrow && <span>&#8594;</span>}
     </ButtonStyle>
   );
 }

@@ -9,6 +9,7 @@ export default function Typography({
   className,
   style = {},
   children,
+  color,
   ...rest
 }) {
   let typographyStyle = {};
@@ -18,7 +19,8 @@ export default function Typography({
       typographyStyle = {
         ...typographyStyle,
         fontSize: "4rem",
-        color: colors.blue_primary
+        marginBottom: "2rem",
+        color: colors.green_primary
       };
       break;
     case "description":
@@ -36,6 +38,12 @@ export default function Typography({
         marginBottom: "1rem"
       };
     default:
+    case "paragraph":
+      typographyStyle = {
+        ...typographyStyle,
+        fontSize: "1.6rem",
+        color: colors.black
+      };
     case "regular":
       typographyStyle = { ...typographyStyle };
       break;
@@ -54,6 +62,12 @@ export default function Typography({
 
 Typography.prototype = {
   component: PropTypes.element,
-  variant: PropTypes.oneOf(["title", "regular", "description", "label"]),
+  variant: PropTypes.oneOf([
+    "title",
+    "regular",
+    "description",
+    "label",
+    "paragraph"
+  ]),
   children: PropTypes.element
 };

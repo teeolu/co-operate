@@ -8,7 +8,9 @@ const colors = {
   light_grey_3: "#f0eeee",
   light_grey_4: "#ccc",
 
-  blue_primary: "#0099FF"
+  blue_primary: "#0099FF",
+  green_primary: "#004025",
+  green_tertiary: "#e9f7f1"
 };
 
 const borders = {
