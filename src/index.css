@@ -23,13 +23,3 @@ body {
   box-sizing: border-box;
   background-color: #fff7f0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.row {
-  max-width: 114rem;
-  margin: 0 auto;
-}

@@ -27,7 +27,12 @@ export default function OptionCard({
       </div>
       <HorizontalLine />
       <Typography>{name}</Typography>
-      {!!renderProps && renderProps()}
+      {!!renderProps &&
+        renderProps({
+          amount,
+          description,
+          name
+        })}
     </Card>
   );
 }

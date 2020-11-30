@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { colors, shadows, borders } from "../theme";
+import Card from "./Card";
 
 const CardStyle = styled.section`
   background: ${colors.white};
@@ -65,4 +66,23 @@ const ButtonStyle = styled.button`
   }
 `;
 
-export { CardStyle, InputField, ButtonStyle };
+const ModalStyle = styled.div`
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999993393939939393939;
+  .card {
+    width: 50rem;
+    max-height: 80vh;
+    padding: 0;
+  }
+`;
+
+export { CardStyle, ModalStyle, InputField, ButtonStyle };

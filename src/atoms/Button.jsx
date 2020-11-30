@@ -11,7 +11,8 @@ export default function Button({
   style = {},
   children,
   curved,
-  hideArrow
+  hideArrow,
+  ...rest
 }) {
   let btnStyle = {};
 
@@ -54,6 +55,7 @@ export default function Button({
       type={type}
       className={className}
       style={{ ...btnStyle, ...style }}
+      {...rest}
     >
       {children} {!hideArrow && <span>&#8594;</span>}
     </ButtonStyle>

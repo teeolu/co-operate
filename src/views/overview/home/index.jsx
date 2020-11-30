@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Typography, Grid, Card, Button } from "../../../atoms";
 import { HomeStyle } from "./style";
 import OptionCard from "../../../components/OptionsCard";
+import Modal from "../../../atoms/Modal";
 
 export default function Home() {
+  const [selectedPlan, setSelectedPlan] = useState(null);
   const plans = [
     {
       amount: 500,
@@ -48,10 +50,19 @@ export default function Home() {
     }
   ];
 
-  function renderHoverBox(params) {
+  function handleSelectPlan(plan) {
+    setSelectedPlan(plan);
+  }
+
+  function renderHoverBox(plan) {
     return (
       <Card className="select-plan-box">
-        <Button variant="tertiary" curved hideArrow>
+        <Button
+          variant="tertiary"
+          curved
+          hideArrow
+          onClick={() => handleSelectPlan(plan)}
+        >
           select plan
         </Button>
       </Card>
@@ -102,6 +113,11 @@ export default function Home() {
           </Grid>
         </Grid>
       </Card>
+      {Boolean(selectedPlan) && (
+        <Modal onClose={() => setSelectedPlan(null)}>
+          hdddbkjdhbjbdhnhgoiugo
+        </Modal>
+      )}
     </HomeStyle>
   );
 }

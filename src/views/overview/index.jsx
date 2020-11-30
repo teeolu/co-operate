@@ -49,21 +49,20 @@ export default function Overview(props) {
   return (
     <div>
       <HeaderNavigation />
-      {/* <AddBVNDetails /> */}
+      <AddBVNDetails />
       <Container>
         <OverviewStyle>
           <NavigationTabs>
             {navs.map((nav, i) => (
-              <li
-                key={i}
-                data-active={pathname
-                  .split("/")
-                  .includes(nav.name.toLowerCase())}
-              >
-                <Link to={nav.linkUrl}>
+              <Link to={nav.linkUrl} key={i}>
+                <li
+                  data-active={pathname
+                    .split("/")
+                    .includes(nav.name.toLowerCase())}
+                >
                   <Typography bold>{nav.name}</Typography>
-                </Link>
-              </li>
+                </li>
+              </Link>
             ))}
           </NavigationTabs>
           <OverviewMain>
