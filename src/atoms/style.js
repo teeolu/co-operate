@@ -1,6 +1,6 @@
 import styled from "styled-components";
+
 import { colors, shadows, borders } from "../theme";
-import Card from "./Card";
 
 const CardStyle = styled.section`
   background: ${colors.white};
@@ -18,30 +18,56 @@ const CardStyle = styled.section`
 const InputField = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   &:not(:last-child) {
     margin-bottom: 2rem;
   }
 
+  > div {
+    width: 100%;
+    position: relative;
+    span {
+      position: absolute;
+      display: flex;
+      width: 5rem;
+      cursor: pointer;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      font-weight: bold;
+    }
+  }
+
   input {
     padding: 1.5rem 2rem;
     font-size: 1.5rem;
+    width: 100%;
     background: ${colors.light_grey_1};
     border: ${borders.line};
     border-radius: 0.5rem;
+    &[type="password"] {
+      padding-right: 5rem;
+    }
 
     &:focus {
       outline: none;
-      border: 1px solid ${colors.blue_primary};
+      border: 1px solid ${colors.green_primary};
     }
 
     &:placeholder {
       color: ${colors.light_grey_1};
     }
 
-    // &[data-state="unfocused"] {
-    //   outline: 1px solid green;
-    // }
+    &[data-has-error="true"] {
+      border-color: ${colors.red_primary};
+    }
+  }
+  label[data-required="true"]:before {
+    content: "*";
+    color: ${colors.red_primary};
+    font-size: 1.4rem;
   }
 `;
 
@@ -64,6 +90,36 @@ const ButtonStyle = styled.button`
   &:active {
     transform: scale(1.1);
   }
+
+  &[data-variant="primary"] {
+    color: ${colors.white};
+    background: ${colors.green_primary};
+    padding: 1rem 2rem;
+    fontsize: 1.6rem;
+    &:disabled {
+      background: ${colors.green_tertiary};
+      color: ${colors.light_grey_5};
+    }
+  }
+
+  &[data-variant="secondary"] {
+    color: ${colors.green_primary};
+    background: transparent;
+    padding: 1rem 0;
+    fontsize: 1.4rem;
+  }
+
+  &[data-variant="tertiary"] {
+    color: ${colors.green_primary};
+    background: transparent;
+    border: 1px solid ${colors.green_primary};
+    padding: 1rem 2rem;
+    fontsize: 1.4rem;
+    &:disabled {
+      border: 1px solid ${colors.green_tertiary};
+      color: ${colors.light_grey_5};
+    }
+  }
 `;
 
 const ModalStyle = styled.div`
@@ -85,4 +141,54 @@ const ModalStyle = styled.div`
   }
 `;
 
-export { CardStyle, ModalStyle, InputField, ButtonStyle };
+const LinearLoaderStyle = styled.div`
+  overflow: hidden;
+  width: 100%;
+  height: 1px;
+  background-color: ${colors.green_primary};
+
+  div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      background-color: #03a9f4;
+      animation: indeterminate_first 1.5s infinite ease-out;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      background-color: #4fc3f7;
+      animation: indeterminate_second 1.5s infinite ease-in;
+    }
+  }
+
+  @keyframes indeterminate_first {
+    0% {
+      left: -100%;
+      width: 100%;
+    }
+    100% {
+      left: 100%;
+      width: 10%;
+    }
+  }
+
+  @keyframes indeterminate_second {
+    0% {
+      left: -150%;
+      width: 100%;
+    }
+    100% {
+      left: 100%;
+      width: 10%;
+    }
+  }
+`;
+
+export { CardStyle, ModalStyle, InputField, ButtonStyle, LinearLoaderStyle };

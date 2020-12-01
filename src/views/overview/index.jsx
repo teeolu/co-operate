@@ -1,5 +1,5 @@
 import React, { lazy } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
 
 import HeaderNavigation from "../../components/Header";
 import AddBVNDetails from "../../components/AddBVNDetails";
@@ -19,11 +19,11 @@ export default function Overview(props) {
       component: lazy(() => import("./home")),
       linkUrl: `${path}/home`
     },
-    {
-      name: "Loans",
-      component: lazy(() => import("./loans")),
-      linkUrl: `${path}/loans`
-    },
+    // {
+    //   name: "Loans",
+    //   component: lazy(() => import("./loans")),
+    //   linkUrl: `${path}/loans`
+    // },
     {
       name: "History",
       component: lazy(() => import("./history")),
@@ -33,17 +33,17 @@ export default function Overview(props) {
       name: "Transactions",
       component: lazy(() => import("./transactions")),
       linkUrl: `${path}/transactions`
-    },
-    {
-      name: "Guarantors",
-      component: lazy(() => import("./guarantors")),
-      linkUrl: `${path}/guarantors`
-    },
-    {
-      name: "Settings",
-      component: lazy(() => import("./settings")),
-      linkUrl: `${path}/settings`
     }
+    // {
+    //   name: "Guarantors",
+    //   component: lazy(() => import("./guarantors")),
+    //   linkUrl: `${path}/guarantors`
+    // },
+    // {
+    //   name: "Settings",
+    //   component: lazy(() => import("./settings")),
+    //   linkUrl: `${path}/settings`
+    // }
   ];
 
   return (
@@ -75,6 +75,7 @@ export default function Overview(props) {
                   component={route.component}
                 />
               ))}
+              <Redirect to={`${path}/home`} />
             </Switch>
           </OverviewMain>
         </OverviewStyle>

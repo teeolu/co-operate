@@ -11,7 +11,7 @@ const HomeStyle = styled.div`
 
   .plans {
     cursor: default;
-    transition: all 0.2s;
+    transition: all 0.3s;
     position: relative;
     overflow: hidden;
     &:hover {
@@ -27,7 +27,7 @@ const HomeStyle = styled.div`
     }
     .select-plan-box {
       position: absolute !important;
-      transition: all 0.2s;
+      transition: all 0.3s;
       transform: translateY(20rem);
       bottom: 0;
       left: 0;

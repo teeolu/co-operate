@@ -51,6 +51,7 @@ const Signin = () => {
         name="password"
         label="Password"
         onInputChange={handleInputChange}
+        type="password"
         rules={{
           required: true
         }}

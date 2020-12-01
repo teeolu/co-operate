@@ -31,6 +31,15 @@ export default function Typography({
         marginBottom: "2rem"
       };
       break;
+    case "sub-title":
+      typographyStyle = {
+        ...typographyStyle,
+        fontSize: "2rem",
+        color: "#777",
+        fontWeight: "bold",
+        marginBottom: "2rem"
+      };
+      break;
     case "description":
       typographyStyle = {
         ...typographyStyle,
@@ -60,8 +69,7 @@ export default function Typography({
     case "paragraph":
       typographyStyle = {
         ...typographyStyle,
-        fontSize: "1.6rem",
-        color: colors.black
+        fontSize: "1.6rem"
       };
   }
 

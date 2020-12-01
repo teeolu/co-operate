@@ -4,6 +4,7 @@ import { Container, FormField } from "../commonStyle";
 import { AddBVNDetailsStyle } from "./styles";
 import { Grid, Typography, Input, Button, Card } from "../atoms";
 import { colors } from "../theme";
+import { regexPatterns, errorMessages } from "../utils/formUtils";
 
 export default function AddBVNDetails() {
   const [form, setForm] = useState({});
@@ -44,16 +45,18 @@ export default function AddBVNDetails() {
             </div>
           </Grid>
           <Grid variant="item">
-            <Card className="bvn-form">
+            <Card className="bvn-form" noShadow>
               <FormField onSubmit={handleSubmitBVN}>
                 <Input
                   onInputChange={handleInputChange}
                   name="bvn"
-                  rules={{
-                    required: true
-                  }}
+                  required
+                  // pattern={regexPatterns.bvn}
+                  maxLength={11}
+                  minLength={11}
+                  errorMessage={errorMessages.bvn}
                 />
-                <Button>Add BVN</Button>
+                <Button type="submit">Add BVN</Button>
               </FormField>
             </Card>
           </Grid>

@@ -7,10 +7,13 @@ const colors = {
   light_grey_2: "#f4f2f2",
   light_grey_3: "#f0eeee",
   light_grey_4: "#ccc",
+  light_grey_5: "#777",
 
   blue_primary: "#0099FF",
   green_primary: "#004025",
-  green_tertiary: "#e9f7f1"
+  green_tertiary: "#e9f7f1",
+
+  red_primary: "red"
 };
 
 const borders = {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Typography, Grid, Card } from "../atoms";
+import { Typography, Card } from "../atoms";
 import { HorizontalLine } from "../commonStyle";
 import { formatCurrency } from "../utils/currency";
 import { colors } from "../theme";
@@ -17,7 +17,6 @@ export default function OptionCard({
       <div>
         <Typography component="h3" variant="semi-title">
           {formatCurrency(amount)}
-          <Typography variant="caption">/Month</Typography>
         </Typography>
         <Typography color={colors.black}>
           {description} Lorem ipsum dolor sit amet consectetur adipisicing elit.

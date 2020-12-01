@@ -28,7 +28,7 @@ const AuthenticationPageLayout = ({
         <FormField onSubmit={onSubmit}>
           {children}
           <div className="btn-group">
-            <Button>{btnText}</Button>
+            <Button type="submit">{btnText}</Button>
             {!!alternateLink && alternateLink}
           </div>
         </FormField>

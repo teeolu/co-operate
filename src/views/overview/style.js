@@ -33,6 +33,7 @@ export const NavigationTabs = styled.ul`
     &[data-active="true"] {
       background: ${colors.white};
       color: ${colors.green_primary};
+      border: 1px solid ${colors.green_primary};
     }
   }
 `;

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Typography, Grid, Card, Button } from "../../../atoms";
 import { HomeStyle } from "./style";
 import OptionCard from "../../../components/OptionsCard";
-import Modal from "../../../atoms/Modal";
+import CompleteSubscriptionModal from "../../../modals/CompleteSubscriptionModal";
 
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -96,7 +96,7 @@ export default function Home() {
                   key={i}
                   amount={plan.amount}
                   description={plan.description}
-                  name={plan.name}
+                  name="Per month"
                   renderProps={renderHoverBox}
                 />
               </Grid>
@@ -114,9 +114,10 @@ export default function Home() {
         </Grid>
       </Card>
       {Boolean(selectedPlan) && (
-        <Modal onClose={() => setSelectedPlan(null)}>
-          hdddbkjdhbjbdhnhgoiugo
-        </Modal>
+        <CompleteSubscriptionModal
+          selectedPlan={selectedPlan}
+          setSelectedPlan={setSelectedPlan}
+        />
       )}
     </HomeStyle>
   );
