@@ -5,6 +5,7 @@ import { AddBVNDetailsStyle } from "./styles";
 import { Grid, Typography, Input, Button, Card } from "../atoms";
 import { colors } from "../theme";
 import { regexPatterns, errorMessages } from "../utils/formUtils";
+import LinearLoader from "../atoms/LinearLoader";
 
 export default function AddBVNDetails() {
   const [form, setForm] = useState({});
@@ -46,6 +47,7 @@ export default function AddBVNDetails() {
           </Grid>
           <Grid variant="item">
             <Card className="bvn-form" noShadow>
+              <LinearLoader isLoading={true} />
               <FormField onSubmit={handleSubmitBVN}>
                 <Input
                   onInputChange={handleInputChange}

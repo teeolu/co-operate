@@ -4,6 +4,7 @@ import { Card, Typography } from "../atoms";
 import { AuthenticationPageLayoutStyle } from "./styles";
 import Button from "../atoms/Button";
 import { FormField } from "../commonStyle";
+import LinearLoader from "../atoms/LinearLoader";
 
 const AuthenticationPageLayout = ({
   children,
@@ -12,6 +13,7 @@ const AuthenticationPageLayout = ({
   alternateLink,
   bottomText,
   onSubmit,
+  isLoading,
   description = "Everything great starts with a set up. Let's set this up with you"
 }) => {
   return (
@@ -25,10 +27,13 @@ const AuthenticationPageLayout = ({
         </Typography>
       </div>
       <Card>
+        <LinearLoader isLoading={isLoading} />
         <FormField onSubmit={onSubmit}>
           {children}
           <div className="btn-group">
-            <Button type="submit">{btnText}</Button>
+            <Button type="submit" isLoading={isLoading}>
+              {btnText}
+            </Button>
             {!!alternateLink && alternateLink}
           </div>
         </FormField>

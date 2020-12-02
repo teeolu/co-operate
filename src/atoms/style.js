@@ -7,6 +7,7 @@ const CardStyle = styled.section`
   box-shadow: ${shadows.primary};
   padding: 3rem;
   height: 100%;
+  position: relative;
 
   .center {
     display: flex;
@@ -143,8 +144,13 @@ const ModalStyle = styled.div`
 
 const LinearLoaderStyle = styled.div`
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 1px;
+  height: 0.3rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
   background-color: ${colors.green_primary};
 
   div {

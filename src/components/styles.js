@@ -34,12 +34,37 @@ const HeaderNav = styled.header`
     margin: 2rem 0;
   }
 
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
   .user {
     display: flex;
     align-items: center;
     h1 {
       margin-left: 2rem;
       font-size: 1.6rem;
+    }
+  }
+
+  .links {
+    a {
+      color: ${colors.green_secondary};
+      display: inline-block;
+      padding: 2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      &:hover,
+      &[data-isactive="true"] {
+        background: ${colors.green_tertiary};
+        color: ${colors.green_primary};
+      }
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
 `;

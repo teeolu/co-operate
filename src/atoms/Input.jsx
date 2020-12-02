@@ -22,7 +22,6 @@ export default function Input({
   useEffect(() => {
     const inputDocument = inputRef.current;
     inputDocument.addEventListener("input", function(event) {
-      console.log("value ", inputDocument.checkValidity());
       if (!inputDocument.checkValidity()) {
         setHasError(true);
         inputDocument.setCustomValidity(errorMessage);

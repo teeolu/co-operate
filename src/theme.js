@@ -11,6 +11,7 @@ const colors = {
 
   blue_primary: "#0099FF",
   green_primary: "#004025",
+  green_secondary: "#0b6e44",
   green_tertiary: "#e9f7f1",
 
   red_primary: "red"
