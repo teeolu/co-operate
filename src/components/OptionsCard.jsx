@@ -15,7 +15,11 @@ export default function OptionCard({
   return (
     <Card className={className}>
       <div>
-        <Typography component="h3" variant="semi-title">
+        <Typography
+          component="h3"
+          style={{ color: colors.green_secondary }}
+          variant="semi-title"
+        >
           {formatCurrency(amount)}
         </Typography>
         <Typography color={colors.black}>

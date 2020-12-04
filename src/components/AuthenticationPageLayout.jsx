@@ -26,7 +26,7 @@ const AuthenticationPageLayout = ({
           {description}
         </Typography>
       </div>
-      <Card>
+      <Card className="authFormCard">
         <LinearLoader isLoading={isLoading} />
         <FormField onSubmit={onSubmit}>
           {children}

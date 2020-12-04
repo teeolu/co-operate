@@ -16,6 +16,12 @@ const Signup = () => {
     setForm(state => ({ ...state, [name]: value }));
   }
 
+  const bottomText = (
+    <p>
+      <Link to="signup">Sign up</Link> if you don't have an account already
+    </p>
+  );
+
   return (
     <AuthenticationPageLayout
       alternateLink={
@@ -24,7 +30,7 @@ const Signup = () => {
         </span>
       }
       description="A mail will be sent to the email you provide. Click on the reset link to reset your password"
-      bottomText="We are very ready to have you. We are a community that surports each other"
+      bottomText={bottomText}
       onSubmit={handleSubmit}
       title="Forgot password..."
       btnText="Send link"

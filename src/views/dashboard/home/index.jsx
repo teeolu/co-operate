@@ -4,6 +4,8 @@ import { Typography, Grid, Card, Button } from "../../../atoms";
 import { HomeStyle } from "./style";
 import OptionCard from "../../../components/OptionsCard";
 import CompleteSubscriptionModal from "../../../modals/CompleteSubscriptionModal";
+import AddBVNDetails from "../../../components/AddBVNDetails";
+import { colors } from "../../../theme";
 
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -75,12 +77,17 @@ export default function Home() {
         Welcome Olusola
       </Typography>
       <Card noShadow>
-        <Typography component="h4" variant="paragraph">
+        <AddBVNDetails />
+        <Typography
+          component="h1"
+          color={colors.green_primary}
+          variant="sub-title"
+        >
           Here's what to do next, select a plan
         </Typography>
         <Typography component="p" variant="paragraph">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro odit
-          laudantium, ratione quos sunt corrupti officiis rerum nulla iusto.
+          Any option you select is a good one to start. You can always increase
+          it with increase in capacity...
         </Typography>
         <Grid
           style={{ marginTop: "4rem" }}
@@ -90,10 +97,9 @@ export default function Home() {
         >
           {plans.map((plan, i) => {
             return (
-              <Grid>
+              <Grid key={i}>
                 <OptionCard
                   className="plans"
-                  key={i}
                   amount={plan.amount}
                   description={plan.description}
                   name="Per month"

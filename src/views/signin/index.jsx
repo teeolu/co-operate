@@ -27,15 +27,9 @@ const Signin = () => {
   );
 
   const bottomText = (
-    <>
-      <p>
-        <Link to="signup">Sign up</Link> if you don't have an account already
-      </p>
-      <p>
-        We are very ready to have you. We are a community that surports each
-        other
-      </p>
-    </>
+    <p>
+      <Link to="signup">Sign up</Link> if you don't have an account already
+    </p>
   );
 
   return (

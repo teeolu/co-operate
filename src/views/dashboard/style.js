@@ -7,9 +7,10 @@ export const OverviewStyle = styled.div`
 `;
 
 export const NavigationTabs = styled.ul`
-  width: 18%;
+  width: 15%;
   list-style-type: none;
   height: 30rem;
+  margin-top: 3rem;
   position: sticky;
   top: 5rem;
   a {
@@ -28,17 +29,17 @@ export const NavigationTabs = styled.ul`
     }
     &:hover {
       background: ${colors.white};
-      color: ${colors.green_primary};
+      color: ${colors.green_secondary};
     }
     &[data-active="true"] {
       background: ${colors.white};
       color: ${colors.green_primary};
-      border: 1px solid ${colors.green_primary};
+      border: 3px solid ${colors.green_tertiary};
     }
   }
 `;
 
 export const OverviewMain = styled.main`
-  padding: 4rem;
+  padding: 2rem;
   flex: 1;
 `;

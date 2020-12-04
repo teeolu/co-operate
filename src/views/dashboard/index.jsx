@@ -2,7 +2,6 @@ import React, { lazy } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 
 import HeaderNavigation from "../../components/Header";
-import AddBVNDetails from "../../components/AddBVNDetails";
 import { OverviewStyle, NavigationTabs, OverviewMain } from "./style";
 import { Container } from "../../commonStyle";
 import { Typography } from "../../atoms";
@@ -49,7 +48,6 @@ export default function Overview(props) {
   return (
     <div>
       <HeaderNavigation />
-      <AddBVNDetails />
       <Container>
         <OverviewStyle>
           <NavigationTabs>
@@ -60,7 +58,7 @@ export default function Overview(props) {
                     .split("/")
                     .includes(nav.name.toLowerCase())}
                 >
-                  <Typography bold>{nav.name}</Typography>
+                  <Typography variant="label">{nav.name}</Typography>
                 </li>
               </Link>
             ))}

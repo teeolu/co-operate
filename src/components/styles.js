@@ -23,6 +23,21 @@ const AuthenticationPageLayoutStyle = styled.div`
     text-align: center;
     color: ${colors.black};
   }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    margin: 8rem 0;
+    .authPageHeading {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+    .bottom-text {
+      margin: 2rem 4rem;
+    }
+    .authFormCard {
+      padding: 2rem;
+    }
+  }
 `;
 
 const HeaderNav = styled.header`
@@ -71,10 +86,11 @@ const HeaderNav = styled.header`
 
 const AddBVNDetailsStyle = styled.section`
   min-height: 5rem;
+  position: relative;
   background: ${colors.green_tertiary};
-  padding: 5rem 0;
+  margin-bottom: 5rem;
   .grid {
-    padding: 5rem;
+    padding: 2rem;
   }
 
   .readmore-btn {
@@ -82,11 +98,16 @@ const AddBVNDetailsStyle = styled.section`
     color: ${colors.green_primary};
   }
 
+  h4 {
+    color: ${colors.green_secondary};
+  }
+
   .bvn-form {
     height: 100%;
-    padding: 5rem;
+    padding: 2rem;
     display: flex;
     align-items: center;
+    background: ${colors.green_tertiary};
   }
 `;
 

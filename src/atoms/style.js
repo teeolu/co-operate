@@ -148,6 +148,7 @@ const LinearLoaderStyle = styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 5;
   height: 0.3rem;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
