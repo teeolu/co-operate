@@ -12,7 +12,7 @@ const AuthRepository = function(axiosInstance) {
         );
         //@todo Handle refresh token
         const {
-          data: { access, refresh, user }
+          data: { access, user }
         } = response.data;
         // Auth.setToken({ access, refresh });
         axiosInstance.defaults.headers.common[

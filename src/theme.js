@@ -25,4 +25,8 @@ const shadows = {
   primary: `0 2rem 5rem rgba(0,0,0, .06)`
 };
 
-export { colors, borders, shadows };
+const breakPoints = {
+  smallScreens: "600px"
+};
+
+export { colors, breakPoints, borders, shadows };

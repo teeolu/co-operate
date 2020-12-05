@@ -1,18 +1,8 @@
 import styled from "styled-components";
 import { colors } from "../../theme";
 
-export const OverviewStyle = styled.div`
-  display: flex;
-  position: relative;
-`;
-
 export const NavigationTabs = styled.ul`
-  width: 15%;
   list-style-type: none;
-  height: 30rem;
-  margin-top: 3rem;
-  position: sticky;
-  top: 5rem;
   a {
     color: inherit;
     text-decoration: none;
@@ -37,9 +27,4 @@ export const NavigationTabs = styled.ul`
       border: 3px solid ${colors.green_tertiary};
     }
   }
-`;
-
-export const OverviewMain = styled.main`
-  padding: 2rem;
-  flex: 1;
 `;

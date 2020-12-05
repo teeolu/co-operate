@@ -21,12 +21,16 @@ export default function AddBVNDetails() {
   return (
     <AddBVNDetailsStyle>
       <LinearLoader isLoading={false} />
-      <Grid variant="container" style={{ alignItems: "center" }}>
+      <Grid
+        variant="container"
+        className="bvn-details-grid"
+        style={{ alignItems: "center" }}
+      >
         <Grid variant="item" className="grid">
           <Typography
-            component="h1"
+            component="h3"
             color={colors.green_primary}
-            variant="sub-title"
+            variant="semi-title"
           >
             Add your BVN...
           </Typography>
@@ -55,7 +59,6 @@ export default function AddBVNDetails() {
                 maxLength={11}
                 minLength={11}
                 errorMessage={errorMessages.bvn}
-                autoFocus
                 placeHolder="Add your BVN here..."
               />
               <Button

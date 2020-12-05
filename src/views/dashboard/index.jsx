@@ -2,9 +2,10 @@ import React, { lazy } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 
 import HeaderNavigation from "../../components/Header";
-import { OverviewStyle, NavigationTabs, OverviewMain } from "./style";
+import { NavigationTabs } from "./style";
 import { Container } from "../../commonStyle";
 import { Typography } from "../../atoms";
+import MainLayout from "../../components/MainLayout";
 
 export default function Overview(props) {
   let {
@@ -49,21 +50,23 @@ export default function Overview(props) {
     <div>
       <HeaderNavigation />
       <Container>
-        <OverviewStyle>
-          <NavigationTabs>
-            {navs.map((nav, i) => (
-              <Link to={nav.linkUrl} key={i}>
-                <li
-                  data-active={pathname
-                    .split("/")
-                    .includes(nav.name.toLowerCase())}
-                >
-                  <Typography variant="label">{nav.name}</Typography>
-                </li>
-              </Link>
-            ))}
-          </NavigationTabs>
-          <OverviewMain>
+        <MainLayout
+          renderLeftContent={() => (
+            <NavigationTabs>
+              {navs.map((nav, i) => (
+                <Link to={nav.linkUrl} key={i}>
+                  <li
+                    data-active={pathname
+                      .split("/")
+                      .includes(nav.name.toLowerCase())}
+                  >
+                    <Typography variant="label">{nav.name}</Typography>
+                  </li>
+                </Link>
+              ))}
+            </NavigationTabs>
+          )}
+          renderRightContent={() => (
             <Switch>
               {navs.map(route => (
                 <Route
@@ -75,8 +78,8 @@ export default function Overview(props) {
               ))}
               <Redirect to={`${path}/home`} />
             </Switch>
-          </OverviewMain>
-        </OverviewStyle>
+          )}
+        />
       </Container>
     </div>
   );

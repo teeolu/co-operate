@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { colors, shadows, borders } from "../theme";
+import { colors, shadows, borders, breakPoints } from "../theme";
 
 const CardStyle = styled.section`
   background: ${colors.white};
@@ -8,6 +8,10 @@ const CardStyle = styled.section`
   padding: 3rem;
   height: 100%;
   position: relative;
+
+  @media screen and (max-width: ${breakPoints.smallScreens}) {
+    padding: 2rem;
+  }
 
   .center {
     display: flex;

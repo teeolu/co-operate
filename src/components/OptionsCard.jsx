@@ -22,7 +22,7 @@ export default function OptionCard({
         >
           {formatCurrency(amount)}
         </Typography>
-        <Typography color={colors.black}>
+        <Typography className="option-description" color={colors.black}>
           {description} Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Impedit eligendi eveniet sed saepe temporibus labore consectetur
           veniam.

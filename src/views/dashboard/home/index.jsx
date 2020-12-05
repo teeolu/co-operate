@@ -6,6 +6,7 @@ import OptionCard from "../../../components/OptionsCard";
 import CompleteSubscriptionModal from "../../../modals/CompleteSubscriptionModal";
 import AddBVNDetails from "../../../components/AddBVNDetails";
 import { colors } from "../../../theme";
+import Introduction from "./Introduction";
 
 export default function Home() {
   const [selectedPlan, setSelectedPlan] = useState(null);
@@ -77,47 +78,55 @@ export default function Home() {
         Welcome Olusola
       </Typography>
       <Card noShadow>
+        <Introduction />
         <AddBVNDetails />
-        <Typography
-          component="h1"
-          color={colors.green_primary}
-          variant="sub-title"
-        >
-          Here's what to do next, select a plan
-        </Typography>
-        <Typography component="p" variant="paragraph">
-          Any option you select is a good one to start. You can always increase
-          it with increase in capacity...
-        </Typography>
-        <Grid
-          style={{ marginTop: "4rem" }}
-          repeat={3}
-          variant="container"
-          spacing="3rem"
-        >
-          {plans.map((plan, i) => {
-            return (
-              <Grid key={i}>
-                <OptionCard
-                  className="plans"
-                  amount={plan.amount}
-                  description={plan.description}
-                  name="Per month"
-                  renderProps={renderHoverBox}
-                />
-              </Grid>
-            );
-          })}
-          <Grid>
-            <Card noShadow style={{ background: "transparent" }} align="center">
-              <Button variant="secondary" hideArrow>
-                <Typography variant="title" className="expand">
-                  &#8594;
-                </Typography>
-              </Button>
-            </Card>
+        <div className="select-plans">
+          <Typography
+            component="h3"
+            color={colors.green_primary}
+            variant="sub-title"
+          >
+            Here's what to do next, select a plan
+          </Typography>
+          <Typography component="p" variant="paragraph">
+            Any option you select is a good one to start. You can always
+            increase it with increase in capacity...
+          </Typography>
+          <Grid
+            style={{ marginTop: "4rem" }}
+            repeat={3}
+            variant="container"
+            spacing="3rem"
+            className="plans-options-grid"
+          >
+            {plans.map((plan, i) => {
+              return (
+                <Grid key={i}>
+                  <OptionCard
+                    className="plans"
+                    amount={plan.amount}
+                    description={plan.description}
+                    name="Per month"
+                    renderProps={renderHoverBox}
+                  />
+                </Grid>
+              );
+            })}
+            <Grid>
+              <Card
+                noShadow
+                style={{ background: "transparent" }}
+                align="center"
+              >
+                <Button variant="secondary" hideArrow>
+                  <Typography variant="title" className="expand">
+                    &#8594;
+                  </Typography>
+                </Button>
+              </Card>
+            </Grid>
           </Grid>
-        </Grid>
+        </div>
       </Card>
       {Boolean(selectedPlan) && (
         <CompleteSubscriptionModal
