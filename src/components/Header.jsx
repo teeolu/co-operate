@@ -1,14 +1,31 @@
-import React, { useRef, useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { useRef, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { MenuOutlined, CloseOutlined } from "@ant-design/icons";
 
 import defaultUserImage from "../assets/no_image.png";
 import { Container } from "../commonStyle";
-import { HeaderNav, MobileNavStyle } from "./styles";
+import { HeaderNav, MobileNavStyle, MobileNavLink } from "./styles";
 import { Typography, Button } from "../atoms";
 import { PRIVATE_PATHS } from "../routes";
 
 const links = [
+  {
+    url: PRIVATE_PATHS.DASHBOARD,
+    title: "dashboard",
+    id: "dashboard",
+    subLinks: [
+      {
+        title: "History",
+        url: `/history`,
+        id: "history"
+      },
+      {
+        title: "Transactions",
+        url: `/transactions`,
+        id: "transactions"
+      }
+    ]
+  },
   {
     url: PRIVATE_PATHS.LOAN,
     title: "Request loan",
@@ -18,20 +35,29 @@ const links = [
     url: PRIVATE_PATHS.MARKET_PLACE,
     title: "Market place",
     id: "market"
-  },
-  {
-    url: PRIVATE_PATHS.DASHBOARD,
-    title: "dashboard",
-    id: "dashboard"
   }
 ];
 
 function HeaderNavigation(props) {
   let {
-    match: { path }
+    location: { pathname }
   } = props;
   const navRef = useRef(null);
   const [isMobileNavVisible, setisMobileNavVisible] = useState(null);
+
+  useEffect(() => {
+    document.addEventListener("click", drawerClickEventHandler);
+    return () => {
+      document.removeEventListener("click", drawerClickEventHandler);
+    };
+    // eslint-disable-next-line
+  }, []);
+
+  function drawerClickEventHandler(event) {
+    if (isMobileNavVisible) {
+      setisMobileNavVisible(false);
+    }
+  }
 
   function toggleMobileNavBarVisibilty(event) {
     event.preventDefault();
@@ -40,7 +66,7 @@ function HeaderNavigation(props) {
 
   function renderNavBar(name) {
     return (
-      <HeaderNav ref={navRef}>
+      <HeaderNav ref={navRef} data-isvisible={isMobileNavVisible}>
         <Container className="nav-bar">
           <div className="user">
             <img src={defaultUserImage} alt="User" />
@@ -57,7 +83,7 @@ function HeaderNavigation(props) {
           <div className="links">
             {links.map(link => (
               <Link
-                data-isactive={path.split("/").includes(link.id)}
+                data-isactive={pathname.split("/").includes(link.id)}
                 key={link.id}
                 to={link.url}
               >
@@ -69,22 +95,40 @@ function HeaderNavigation(props) {
       </HeaderNav>
     );
   }
+
   return (
     <div>
       {renderNavBar()}
       <MobileNavStyle data-isvisible={isMobileNavVisible}>
-        {renderNavBar()}
-        <div className="mobile-nav-content">
-          <div className="mobile-nav-links">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores
-            quasi hic modi! Ducimus distinctio quae fugit consequuntur
-            dignissimos harum eum quam sapiente voluptas itaque, asperiores non.
-            Eveniet esse facere at.
-          </div>
-        </div>
+        <MobileNavLink id="modal-card">
+          {links.map(link => (
+            <React.Fragment key={link.id}>
+              <Link
+                data-isactive={pathname.split("/").includes(link.id)}
+                key={link.id}
+                to={link.url}
+              >
+                <Typography variant="label">{link.title}</Typography>
+              </Link>
+              {Array.isArray(link.subLinks) && (
+                <MobileNavLink className="sublink">
+                  {link.subLinks.map(subLink => (
+                    <Link
+                      data-isactive={pathname.split("/").includes(subLink.id)}
+                      key={subLink.id}
+                      to={link.url + subLink.url}
+                    >
+                      <Typography variant="label">{subLink.title}</Typography>
+                    </Link>
+                  ))}
+                </MobileNavLink>
+              )}
+            </React.Fragment>
+          ))}
+        </MobileNavLink>
       </MobileNavStyle>
     </div>
   );
 }
 
-export default withRouter(HeaderNavigation);
+export default HeaderNavigation;

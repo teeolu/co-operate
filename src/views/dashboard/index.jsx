@@ -1,7 +1,6 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 
-import HeaderNavigation from "../../components/Header";
 import { NavigationTabs } from "./style";
 import { Container } from "../../commonStyle";
 import { Typography } from "../../atoms";
@@ -13,48 +12,32 @@ export default function Overview(props) {
     location: { pathname }
   } = props;
 
-  const navs = [
+  const dashboardNavs = [
     {
       name: "Home",
       component: lazy(() => import("./home")),
-      linkUrl: `${path}/home`
+      linkUrl: `/home`
     },
-    // {
-    //   name: "Loans",
-    //   component: lazy(() => import("./loans")),
-    //   linkUrl: `${path}/loans`
-    // },
     {
       name: "History",
       component: lazy(() => import("./history")),
-      linkUrl: `${path}/history`
+      linkUrl: `/history`
     },
     {
       name: "Transactions",
       component: lazy(() => import("./transactions")),
-      linkUrl: `${path}/transactions`
+      linkUrl: `/transactions`
     }
-    // {
-    //   name: "Guarantors",
-    //   component: lazy(() => import("./guarantors")),
-    //   linkUrl: `${path}/guarantors`
-    // },
-    // {
-    //   name: "Settings",
-    //   component: lazy(() => import("./settings")),
-    //   linkUrl: `${path}/settings`
-    // }
   ];
 
   return (
     <div>
-      <HeaderNavigation />
       <Container>
         <MainLayout
           renderLeftContent={() => (
             <NavigationTabs>
-              {navs.map((nav, i) => (
-                <Link to={nav.linkUrl} key={i}>
+              {dashboardNavs.map((nav, i) => (
+                <Link to={`${path}${nav.linkUrl}`} key={i}>
                   <li
                     data-active={pathname
                       .split("/")
@@ -67,17 +50,19 @@ export default function Overview(props) {
             </NavigationTabs>
           )}
           renderRightContent={() => (
-            <Switch>
-              {navs.map(route => (
-                <Route
-                  key={route.name}
-                  path={route.linkUrl}
-                  exact={true}
-                  component={route.component}
-                />
-              ))}
-              <Redirect to={`${path}/home`} />
-            </Switch>
+            <Suspense fallback={<>I am still loading, Please wait</>}>
+              <Switch>
+                {dashboardNavs.map(route => (
+                  <Route
+                    key={route.name}
+                    path={`${path}${route.linkUrl}`}
+                    exact={true}
+                    component={route.component}
+                  />
+                ))}
+                <Redirect to={`${path}/home`} />
+              </Switch>
+            </Suspense>
           )}
         />
       </Container>

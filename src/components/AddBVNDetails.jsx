@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { FormField } from "../commonStyle";
 import { AddBVNDetailsStyle } from "./styles";
@@ -8,10 +8,10 @@ import { errorMessages } from "../utils/formUtils";
 import LinearLoader from "../atoms/LinearLoader";
 
 export default function AddBVNDetails() {
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
   function handleInputChange(name, value) {
-    setForm(state => ({ ...state, [name]: value }));
+    // setForm(state => ({ ...state, [name]: value }));
   }
 
   function handleSubmitBVN(event) {
@@ -59,7 +59,7 @@ export default function AddBVNDetails() {
                 maxLength={11}
                 minLength={11}
                 errorMessage={errorMessages.bvn}
-                placeHolder="Add your BVN here..."
+                placeholder="Add your BVN here..."
               />
               <Button
                 style={{ background: colors.green_secondary }}

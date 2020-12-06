@@ -84,9 +84,9 @@ export default function Home() {
           <Typography
             component="h3"
             color={colors.green_primary}
-            variant="sub-title"
+            variant="semi-title"
           >
-            Here's what to do next, select a plan
+            Here's what to do next, select a plan...
           </Typography>
           <Typography component="p" variant="paragraph">
             Any option you select is a good one to start. You can always

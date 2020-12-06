@@ -41,8 +41,19 @@ const AuthenticationPageLayoutStyle = styled.div`
 `;
 
 const HeaderNav = styled.header`
-  background: ${colors.white};
   position: relative;
+  background: ${colors.white};
+  @media screen and (max-width: ${breakPoints.smallScreens}) {
+    z-index: 60;
+    width: 100vw;
+    background: ${colors.green_tertiary};
+    &[data-isvisible="true"] {
+      position: fixed;
+    }
+    &[data-isvisible="false"] {
+      position: relative;
+    }
+  }
 
   img {
     height: 4rem;
@@ -65,7 +76,10 @@ const HeaderNav = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid ${colors.green_tertiary};
+  }
+
+  .moblie-nav {
+    top: 0;
   }
 
   .user {
@@ -144,6 +158,9 @@ const AddBVNDetailsStyle = styled.section`
     display: flex;
     align-items: center;
     background: ${colors.green_tertiary};
+    input {
+      background: ${colors.white};
+    }
     @media screen and (max-width: ${breakPoints.smallScreens}) {
       padding: 2rem 0;
     }
@@ -177,52 +194,62 @@ const MainLayoutStyle = styled.div`
 
 const MobileNavStyle = styled.div`
   position: fixed;
-  right: 0;
-  top: 0;
-  width: 100%;
-  background: red;
-  animation-fill-mode: forwards !important;
-  z-index: 100;
+  top: 60px;
+  height: 100vh;
+  width: 70vw;
+  z-index: 50;
+  padding: 2rem;
+  background: ${colors.white};
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  left: -70vw;
 
   &[data-isvisible="true"] {
-    animation: navin 5s;
-    display: block;
+    animation-name: slide-in;
   }
 
   &[data-isvisible="false"] {
-    animation: navout 5s;
+    animation-name: slide-out;
   }
 
-  .mobile-nav-content {
-    display: block;
-    float: left;
-    height: 100%;
-    .mobile-nav-links {
-      width: 70%;
-      height: 100%;
-      background: ${colors.white};
+  @keyframes slide-in {
+    100% {
+      left: 0;
     }
   }
 
-  @keyframes navin {
+  @keyframes slide-out {
     0% {
-      height: 71px;
+      left: 0;
     }
     100% {
-      height: 100vh;
+      left: -70vw;
     }
   }
+`;
 
-  @keyframes navout {
-    0% {
-      height: 100vh;
-    }
-    95% {
-      height: 71px;
-    }
-    100% {
-      height: 0;
-      display: none;
+const MobileNavLink = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    color: ${colors.green_secondary};
+    display: inline-block;
+    margin: 0.5rem 0;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid ${colors.green_tertiary};
+  }
+
+  .sublink {
+    a {
+      color: ${colors.light_grey_5} !important;
+      padding: 1rem 0 1rem 3rem;
+      border-bottom: none;
+      font-size: 1.2rem;
+      margin: 0;
     }
   }
 `;
@@ -232,5 +259,6 @@ export {
   AuthenticationPageLayoutStyle,
   AddBVNDetailsStyle,
   MainLayoutStyle,
-  MobileNavStyle
+  MobileNavStyle,
+  MobileNavLink
 };

@@ -53,8 +53,12 @@ const PRIVATE_ROUTES = [
 
 export default function Routes() {
   return (
-    <Suspense fallback={() => <>I am still loading, Please wait</>}>
+    <Suspense fallback={<>I am still loading, Please wait</>}>
       <Router history={history}>
+        <Route
+          path="/"
+          component={lazy(() => import(`../components/Header`))}
+        />
         <Switch>
           {PUBLIC_ROUTES.map(route => (
             <Route
@@ -67,6 +71,7 @@ export default function Routes() {
             <Route
               key={route.path}
               path={route.path}
+              exact={false}
               component={route.component}
             />
           ))}

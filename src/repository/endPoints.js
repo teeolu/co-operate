@@ -1,8 +1,8 @@
 export const endPoints = {
   auth: {
-    signin: ({}) => `/auth/login/`,
-    signup: ({}) => ``,
-    forgotPassword: ({}) => ``,
-    resetPassword: ({}) => ``
+    signin: () => `/auth/login/`,
+    signup: () => ``,
+    forgotPassword: () => ``,
+    resetPassword: () => ``
   }
 };
