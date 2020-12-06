@@ -153,7 +153,7 @@ const LinearLoaderStyle = styled.div`
   left: 0;
   width: 100%;
   z-index: 5;
-  height: 0.3rem;
+  height: 0.2rem;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   background-color: ${colors.green_primary};
@@ -202,4 +202,22 @@ const LinearLoaderStyle = styled.div`
   }
 `;
 
-export { CardStyle, ModalStyle, InputField, ButtonStyle, LinearLoaderStyle };
+const SuspenseFallbackStyle = styled.div`
+  width: 30rem;
+  margin: 20rem auto;
+  text-align: center;
+
+  .linear-loader {
+    position: relative;
+    margin-top: 2rem;
+  }
+`;
+
+export {
+  CardStyle,
+  ModalStyle,
+  InputField,
+  ButtonStyle,
+  LinearLoaderStyle,
+  SuspenseFallbackStyle
+};

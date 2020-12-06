@@ -3,7 +3,7 @@ import { Switch, Route, Link, Redirect } from "react-router-dom";
 
 import { NavigationTabs } from "./style";
 import { Container } from "../../commonStyle";
-import { Typography } from "../../atoms";
+import { Typography, SuspenseFallback } from "../../atoms";
 import MainLayout from "../../components/MainLayout";
 
 export default function Overview(props) {
@@ -50,7 +50,7 @@ export default function Overview(props) {
             </NavigationTabs>
           )}
           renderRightContent={() => (
-            <Suspense fallback={<>I am still loading, Please wait</>}>
+            <Suspense fallback={<SuspenseFallback />}>
               <Switch>
                 {dashboardNavs.map(route => (
                   <Route

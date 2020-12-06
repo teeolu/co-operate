@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Router, Switch, Route, Redirect } from "react-router-dom";
 
 import history from "./browserHistory";
+import { SuspenseFallback } from "../atoms";
 
 export const PUBLIC_PATHS = {
   SIGNUP: "/signup",
@@ -53,7 +54,7 @@ const PRIVATE_ROUTES = [
 
 export default function Routes() {
   return (
-    <Suspense fallback={<>I am still loading, Please wait</>}>
+    <Suspense fallback={<SuspenseFallback />}>
       <Router history={history}>
         <Route
           path="/"
