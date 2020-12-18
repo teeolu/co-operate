@@ -1,13 +1,35 @@
 import styled from "styled-components";
 import { colors } from "../../theme";
 
-export const NavigationTabs = styled.ul`
+const SideNav = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
+  .sidenav-user {
+    display: flex;
+    align-items: center;
+    > div {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    img {
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+    }
+  }
+`;
+
+const NavigationTabs = styled.ul`
   list-style-type: none;
   a {
     color: inherit;
     text-decoration: none;
   }
-  li {
+  .dashboard-links {
     margin: 1rem 0;
     padding: 1rem 2rem;
     transition: all 0.3s;
@@ -27,4 +49,10 @@ export const NavigationTabs = styled.ul`
       border: 3px solid ${colors.green_tertiary};
     }
   }
+
+  .logout {
+    margin-top: auto;
+  }
 `;
+
+export { SideNav, NavigationTabs };

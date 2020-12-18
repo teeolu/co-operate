@@ -204,7 +204,7 @@ const LinearLoaderStyle = styled.div`
 
 const SuspenseFallbackStyle = styled.div`
   width: 30rem;
-  margin: 20rem auto;
+  margin: 40% auto 20rem auto;
   text-align: center;
 
   .linear-loader {

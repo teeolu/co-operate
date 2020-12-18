@@ -96,9 +96,8 @@ function HeaderNavigation(props) {
     );
   }
 
-  return (
-    <div>
-      {renderNavBar()}
+  function renderMobileNav() {
+    return (
       <MobileNavStyle data-isvisible={isMobileNavVisible}>
         <MobileNavLink id="modal-card">
           {links.map(link => (
@@ -127,6 +126,13 @@ function HeaderNavigation(props) {
           ))}
         </MobileNavLink>
       </MobileNavStyle>
+    );
+  }
+
+  return (
+    <div>
+      {renderNavBar()}
+      {renderMobileNav()}
     </div>
   );
 }

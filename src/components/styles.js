@@ -173,7 +173,7 @@ const MainLayoutStyle = styled.div`
   .left-layout {
     width: 15%;
     list-style-type: none;
-    height: 30rem;
+    height: calc(100vh - 150px);
     margin-top: 3rem;
     position: sticky;
     top: 5rem;

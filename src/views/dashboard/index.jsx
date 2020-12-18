@@ -1,10 +1,11 @@
 import React, { lazy, Suspense } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 
-import { NavigationTabs } from "./style";
+import { NavigationTabs, SideNav } from "./style";
 import { Container } from "../../commonStyle";
 import { Typography, SuspenseFallback } from "../../atoms";
 import MainLayout from "../../components/MainLayout";
+import defaultUserImage from "../../assets/no_image.png";
 
 export default function Overview(props) {
   let {
@@ -35,19 +36,31 @@ export default function Overview(props) {
       <Container>
         <MainLayout
           renderLeftContent={() => (
-            <NavigationTabs>
-              {dashboardNavs.map((nav, i) => (
-                <Link to={`${path}${nav.linkUrl}`} key={i}>
-                  <li
-                    data-active={pathname
-                      .split("/")
-                      .includes(nav.name.toLowerCase())}
-                  >
-                    <Typography variant="label">{nav.name}</Typography>
-                  </li>
-                </Link>
-              ))}
-            </NavigationTabs>
+            <SideNav>
+              <NavigationTabs>
+                {dashboardNavs.map((nav, i) => (
+                  <Link to={`${path}${nav.linkUrl}`} key={i}>
+                    <li
+                      data-active={pathname
+                        .split("/")
+                        .includes(nav.name.toLowerCase())}
+                      className="dashboard-links"
+                    >
+                      <Typography variant="label">{nav.name}</Typography>
+                    </li>
+                  </Link>
+                ))}
+              </NavigationTabs>
+              <div className="sidenav-user">
+                <img src={defaultUserImage} alt="User" />
+                <div>
+                  <Typography variant="label" style={{ marginBottom: 0 }}>
+                    Olusola Oyinloye
+                  </Typography>
+                  <Typography variant="caption">Logout</Typography>
+                </div>
+              </div>
+            </SideNav>
           )}
           renderRightContent={() => (
             <Suspense fallback={<SuspenseFallback />}>
