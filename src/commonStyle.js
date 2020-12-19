@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { breakPoints } from "./theme";
 
 const Container = styled.div`
-  width: 114rem;
+  max-width: 114rem;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
+  padding: 3rem;
   @media screen and (max-width: ${breakPoints.smallScreens}) {
     width: 100%;
     margin: 0;

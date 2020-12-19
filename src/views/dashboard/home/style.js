@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { colors, breakPoints } from "../../../theme";
 
 const HomeStyle = styled.div`
+  margin-bottom: 4rem;
   .expand {
     transition: all 0.3s;
     &:hover {
@@ -10,7 +11,7 @@ const HomeStyle = styled.div`
   }
 
   h1 {
-    margin: 4rem !important;
+    margin: 4rem 0 !important;
   }
 
   .plans-options-grid {

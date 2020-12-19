@@ -29,3 +29,7 @@ body {
   box-sizing: border-box;
   background-color: #f0f0e6;
 }
+
+a {
+  color: inherit;
+}

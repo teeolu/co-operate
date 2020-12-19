@@ -100,7 +100,7 @@ const ButtonStyle = styled.button`
     color: ${colors.white};
     background: ${colors.green_primary};
     padding: 1rem 2rem;
-    fontsize: 1.6rem;
+    font-size: 1.6rem;
     &:disabled {
       background: ${colors.green_tertiary};
       color: ${colors.light_grey_5};
@@ -111,7 +111,7 @@ const ButtonStyle = styled.button`
     color: ${colors.green_primary};
     background: transparent;
     padding: 1rem 0;
-    fontsize: 1.4rem;
+    font-size: 1.4rem;
   }
 
   &[data-variant="tertiary"] {
@@ -119,7 +119,7 @@ const ButtonStyle = styled.button`
     background: transparent;
     border: 1px solid ${colors.green_primary};
     padding: 1rem 2rem;
-    fontsize: 1.4rem;
+    font-size: 1.4rem;
     &:disabled {
       border: 1px solid ${colors.green_tertiary};
       color: ${colors.light_grey_5};

@@ -6,6 +6,7 @@ import { Container } from "../../commonStyle";
 import { Typography, SuspenseFallback } from "../../atoms";
 import MainLayout from "../../components/MainLayout";
 import defaultUserImage from "../../assets/no_image.png";
+import { colors } from "../../theme";
 
 export default function Overview(props) {
   let {
@@ -33,6 +34,10 @@ export default function Overview(props) {
 
   return (
     <div>
+      <Route
+        path="/"
+        component={lazy(() => import(`../../components/Header`))}
+      />
       <Container>
         <MainLayout
           renderLeftContent={() => (
@@ -54,7 +59,10 @@ export default function Overview(props) {
               <div className="sidenav-user">
                 <img src={defaultUserImage} alt="User" />
                 <div>
-                  <Typography variant="label" style={{ marginBottom: 0 }}>
+                  <Typography
+                    variant="label"
+                    style={{ marginBottom: 0, color: colors.green_primary }}
+                  >
                     Olusola Oyinloye
                   </Typography>
                   <Typography variant="caption">Logout</Typography>
