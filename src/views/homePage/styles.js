@@ -33,7 +33,9 @@ const HomePageMainStyle = styled.div`
   }
   .card {
     max-width: 60rem;
-    box-shadow: 0px 2px 4px #c9d4db;
+    box-shadow: 0 4px 12px 0 rgba(118, 118, 118, 0.4);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
     img {
       width: 100%;
     }

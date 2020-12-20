@@ -30,7 +30,7 @@ export default function HomePage(props) {
           </div>
           <div className="header-content">
             <Typography component="h1" variant="title">
-              It’s time for a new kind of advertising for the internet.
+              It’s time to re-imagine credit
             </Typography>
           </div>
         </Container>
@@ -62,8 +62,8 @@ export default function HomePage(props) {
             variant="title"
             style={{ textAlign: "center", lineHeight: 1.1 }}
           >
-            Credits are expensive because the cost of trust is getting
-            increasingly higher, and it must be paid
+            Credits are expensive because you're not known, and if you are not
+            known, you can't be trusted
           </Typography>
           <Typography component="p" variant="description" className="text">
             For that indicator, we provide data for Nigeria from 1960 to 2019.
@@ -124,7 +124,11 @@ export default function HomePage(props) {
       <Container style={{ height: "100vh" }}>
         <HomePageFooterStyle>
           <div style={{ flex: 1 }}>
-            <Typography component="h1" variant="title">
+            <Typography
+              component="h1"
+              variant="title"
+              style={{ lineHeight: 1.1 }}
+            >
               Been known starts with joining our community
             </Typography>
             <div
@@ -136,9 +140,10 @@ export default function HomePage(props) {
             >
               <Button
                 style={{ fontWeight: "bold" }}
+                hideArrow
                 onClick={() => history.push(PUBLIC_PATHS.SIGNUP)}
               >
-                Join our community
+                Start been known
               </Button>
             </div>
           </div>
